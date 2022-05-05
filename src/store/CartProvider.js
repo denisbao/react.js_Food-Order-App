@@ -12,7 +12,7 @@ const cartReducer = (state, action) => {
     // update total price amount of the cart:
     const updatedTotalAmount = state.totalAmount + action.item.price * action.item.amount
     // verify if the item being added already exists in the cart:
-    const existingCartItemIndex = state.items.findIndex(item => item.id === action.item.id)
+    const existingCartItemIndex = state.items.findIndex((item) => item.id === action.item.id)
     const existingCartItem = state.items[existingCartItemIndex]
     let updatedItems
 
@@ -35,7 +35,30 @@ const cartReducer = (state, action) => {
       totalAmount: updatedTotalAmount
     }
   }
-  
+
+  if (action.type === 'REMOVE_MEAL') {
+    const existingCartItemIndex = state.items.findIndex((item) => item.id === action.id)
+    const existingItem = state.items[existingCartItemIndex]
+    const updatedTotalAmount = state.totalAmount - existingItem.price
+    let updatedItems
+    // if the removed item is the last item of that type in the cart:
+    if (existingItem.amount === 1) {
+      updatedItems = state.items.filter((item) => item.id !== action.id)
+    }
+    // if there is more than one item of the same type in the cart:
+    else {
+      const updateItem = {
+        ...existingItem,
+        amount: existingItem.amount - 1 
+      }
+      updatedItems = [...state.items]
+      updatedItems[existingCartItemIndex] = updateItem
+    }
+    return {
+      items: updatedItems,
+      totalAmount: updatedTotalAmount
+    }
+  }
   return defaultCartState
 }
 // REDUCER ========================

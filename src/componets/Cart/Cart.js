@@ -11,10 +11,10 @@ export function Cart(props) {
   const hasItems = cart.items.length > 0
 
   function cartItemRemoveHandler(id) {
-
+    cart.removeItem(id)
   }
   function cartItemAddHandler(item) {
-
+    cart.addItem({...item, amount: 1})
   }
 
   const cartItems = (
