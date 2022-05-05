@@ -9,8 +9,9 @@ export function CartProvider(props) {
 
   }
 
+  // Helper constant, creating the object passed to the provider
   const cartContext = {
-    itens: [],
+    items: [],
     totalAmount: 0,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler
