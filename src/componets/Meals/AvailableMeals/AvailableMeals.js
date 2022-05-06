@@ -1,7 +1,7 @@
-import { Card } from '../UI/Card'
-import { MealItem } from './MealItem/MealItem';
+import { Card } from '../../UI/Card/Card'
+import { MealItem } from '../MealItem/MealItem';
 
-import { DUMMY_MEALS } from '../../data/dummy-meals'
+import { DUMMY_MEALS } from '../../../data/dummy-meals'
 
 import classes from './AvailableMeals.module.css'
 

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { CartProvider } from './store/CartProvider';
-import { Header } from './componets/Layout/Header';
+import { Header } from './componets/Layout/Header/Header';
 import { Meals } from './componets/Meals/Meals';
 import { Cart } from './componets/Cart/Cart'
 

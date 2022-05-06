@@ -1,4 +1,4 @@
-import { MealItemForm } from './MealItemForm'
+import { MealItemForm } from './MealItemForm/MealItemForm'
 import { useContext } from 'react'
 import CartContext from '../../../store/cart-context'
 
