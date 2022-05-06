@@ -29,14 +29,18 @@ export function HeaderCartButton(props) {
       clearTimeout(timer)
     }
   }, [items])
-
+  console.log("on HeaderCartButton: " + cart.cartState)
   return (
-    <button className={btnClasses} onClick={props.onShowCart}>
+    <>
+      {/* {cart.cartState && <Cart />} */}
+      <button className={btnClasses} onClick={cart.showCart}>
       <span className={classes.icon}>
         <CartIcon />
       </span>
       <span>Carrinho</span>
       <span className={classes.badge}>{numberOfCartItems}</span>
     </button>
+    </>
+    
   )
 }

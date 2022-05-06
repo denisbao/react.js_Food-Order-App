@@ -1,4 +1,4 @@
-import { useReducer } from 'react'
+import { useReducer, useState } from 'react'
 import CartContext from './cart-context'
 
 // REDUCER ========================
@@ -65,6 +65,14 @@ const cartReducer = (state, action) => {
 
 export function CartProvider(props) {
   const [cartState, dispatchCartAction] = useReducer(cartReducer, defaultCartState)
+  const [cartIsShown, setCartIsShown] = useState(false)
+
+  function showCartHandler() {
+    setCartIsShown(true)
+  }
+  function hideCartHandler() {
+    setCartIsShown(false)
+  }
 
   function addItemToCartHandler(handledItem) {
     dispatchCartAction({type: 'ADD_MEAL', item: handledItem})
@@ -78,7 +86,10 @@ export function CartProvider(props) {
     items: cartState.items,
     totalAmount: cartState.totalAmount,
     addItem: addItemToCartHandler,
-    removeItem: removeItemFromCartHandler
+    removeItem: removeItemFromCartHandler,
+    cartState: cartIsShown,
+    showCart: showCartHandler,
+    hideCart: hideCartHandler
   }
 
   return (

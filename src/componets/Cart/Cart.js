@@ -33,14 +33,14 @@ export function Cart(props) {
   )
 
   return (
-    <Modal onClose={props.onClose}>
+    <Modal onClose={cart.hideCart}>
       {cartItems}
       <div className={classes.total}>
         <span>Valor Total:</span>
         <span>{totalAmount}</span>
       </div>
       <div className={classes.actions}>
-        <button className={classes['button--alt']} onClick={props.onClose}>
+        <button className={classes['button--alt']} onClick={cart.hideCart}>
           Cancelar
         </button>
         {hasItems && <button className={classes.button}>Finalizar Pedido</button>}
