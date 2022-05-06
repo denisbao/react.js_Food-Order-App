@@ -3,14 +3,14 @@ import classes from './MealsSummary.module.css'
 export function MealsSummary() {
   return (
     <section className={classes.summary}>
-      <h2>Delicious Food, deliverid to you.</h2>
+      <h2>Comida, você irá precisar.</h2>
       <p>
-        Choose your favorite meal from our broad selection of available meals
-        and enjoy a delicious lunch or dinner at home.
+        Escolha sua comida favorita de nossa lista de refeições disponíveis e
+        se delicie com uma comida bem ok.
       </p>
       <p>
-        All our meals are cooked with high-quality ingredients, just-in-time and
-        of course by experienced chefs!
+        Todas nossas refeições são feitas com ingredintes descentes, em tempo até
+        que razoável, por pessoas minimamente treinadas.
       </p>
     </section>
   )

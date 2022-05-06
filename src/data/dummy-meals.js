@@ -2,25 +2,25 @@ export const DUMMY_MEALS = [
   {
     id: 'm1',
     name: 'Sushi',
-    description: 'Finest fish and veggies',
-    price: 22.99,
+    description: 'Peixe cru e uns vegetais',
+    price: 102.99,
   },
   {
     id: 'm2',
-    name: 'Schnitzel',
-    description: 'A german specialty!',
+    name: 'Pastel',
+    description: 'Carnes variadas super confiáveis',
     price: 16.5,
   },
   {
     id: 'm3',
     name: 'Barbecue Burger',
-    description: 'American, raw, meaty',
+    description: 'Americano, gorduroso e mal passado',
     price: 12.99,
   },
   {
     id: 'm4',
-    name: 'Green Bowl',
-    description: 'Healthy...and green...',
+    name: 'Salada Verde',
+    description: 'Saldável... e verde',
     price: 18.99,
   },
 ];
