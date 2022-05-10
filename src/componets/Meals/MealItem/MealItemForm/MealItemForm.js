@@ -4,6 +4,7 @@ import Input from '../../../UI/Input/Input';
 import classes from './MealItemForm.module.css'
 
 export function MealItemForm(props) {
+  console.log('MealItemForm is running...')
   const amountInputRef = useRef()
   const [amountIsValid, setAmountIsValid] = useState(true)
 

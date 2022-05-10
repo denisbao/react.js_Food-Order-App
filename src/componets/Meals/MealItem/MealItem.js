@@ -5,6 +5,7 @@ import CartContext from '../../../store/cart-context'
 import classes from './MealItem.module.css'
 
 export function MealItem(props) {
+  console.log('MealItem is running...')
   const cart = useContext(CartContext)
   const price = `R$ ${props.price.toFixed(2)}`
 

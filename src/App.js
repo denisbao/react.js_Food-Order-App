@@ -6,8 +6,8 @@ import { Meals } from './componets/Meals/Meals'
 import { Cart } from './componets/Cart/Cart'
 
 function App() {
+  console.log('App is running...')
   const cart = useContext(CartContext)
-  console.log('on APP: ' + cart.cartState)
   return (
  
       <CartProvider>

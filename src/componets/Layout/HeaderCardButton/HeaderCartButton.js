@@ -5,6 +5,7 @@ import classes from './HeaderCartButton.module.css'
 import { CartIcon } from '../../UI/Icons/CartIcon';
 
 export function HeaderCartButton(props) {
+  console.log('HeaderCartButton is running...')
   const cart = useContext(CartContext)
   const [buttonIsHighlighted, setButtonIsHighlighted] = useState(false)
 
@@ -29,7 +30,7 @@ export function HeaderCartButton(props) {
       clearTimeout(timer)
     }
   }, [items])
-  console.log("on HeaderCartButton: " + cart.cartState)
+ 
   return (
     <>
       {/* {cart.cartState && <Cart />} */}

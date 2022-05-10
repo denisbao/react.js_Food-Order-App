@@ -4,6 +4,7 @@ import classes from './Header.module.css'
 import meals_showcase_img from '../../../assets/meals-showcase.jpg'
 
 export function Header(props) {
+  console.log('Header is running...')
   return (
     <>
       <header className={classes.header}>

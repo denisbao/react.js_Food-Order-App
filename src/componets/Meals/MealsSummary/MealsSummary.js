@@ -1,6 +1,7 @@
 import classes from './MealsSummary.module.css'
 
 export function MealsSummary() {
+  console.log('MealsSummary is running...')
   return (
     <section className={classes.summary}>
       <h2>Comida, você irá precisar.</h2>

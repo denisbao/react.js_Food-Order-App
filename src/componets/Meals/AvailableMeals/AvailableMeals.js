@@ -7,7 +7,7 @@ import classes from './AvailableMeals.module.css'
 
 
 export function AvailableMeals() {
-
+  console.log('AvailableMelas is running...')
   const mealsList = DUMMY_MEALS.map(meal => 
     <MealItem 
       key={meal.id}
