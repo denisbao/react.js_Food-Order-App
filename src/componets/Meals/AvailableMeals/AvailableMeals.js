@@ -7,8 +7,10 @@ import classes from './AvailableMeals.module.css'
 
 export function AvailableMeals() {
   const [meals, setMeals] = useState([])
+  const [isLoaging, setIsLoading] = useState(true)
 
   useEffect(() => {
+
     async function fetchMeals() {
       const response = await fetch('https://food-order-app-f43e9-default-rtdb.firebaseio.com/meals.json')
       const responseData = await response.json()
@@ -25,8 +27,16 @@ export function AvailableMeals() {
       setMeals(loadedMeals)
     }
     fetchMeals()
+    setIsLoading(false)
   }, []);
 
+  if (isLoaging) {
+    return (
+      <section className={classes.MealsLoading}>
+        <p>Loading Meals...</p>
+      </section>
+    )
+  }
 
   const mealsList = meals.map(meal => 
     <MealItem 
