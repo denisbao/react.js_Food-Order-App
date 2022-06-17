@@ -1,8 +1,8 @@
-import { toBeRequired } from '@testing-library/jest-dom/dist/matchers';
 import { useRef, useState } from 'react';
 
 import classes from './Checkout.module.css';
 
+// Helper functions:
 function isEmpty(value) {
    return value.trim() === ''
 }
@@ -10,6 +10,7 @@ function validadePostCode(value) {
    return value.trim().length === 8
 }
 
+// Main component:
 const Checkout = (props) => {
    const [formInputValidity, setformInputValidity] = useState({
       name: true,
@@ -23,27 +24,22 @@ const Checkout = (props) => {
    const postalCodeInputRef = useRef()
    const cityInputRef = useRef()
 
-  const confirmHandler = (event) => {
+
+  function confirmHandler(event) {
     event.preventDefault();
 
-    const enteredName = nameInputRef.current.value
-    const enteredStreet = streetInputRef.current.value
-    const enteredPostalCode = postalCodeInputRef.current.value
-    const enteredCity = cityInputRef.current.value
-
-    const enteredNameIsValid = !isEmpty(enteredName)
-    const enteredStreetIsValid = !isEmpty(enteredStreet)
-    const enteredPostalCodeIsValid = validadePostCode(enteredPostalCode)
-    const enteredCityIsValid = !isEmpty(enteredCity)
-
     setformInputValidity({
-      name: enteredNameIsValid,
-      street: enteredStreetIsValid,
-      postalCode: enteredPostalCodeIsValid,
-      city: enteredCityIsValid
+      name: !isEmpty(nameInputRef.current.value),
+      street: !isEmpty(streetInputRef.current.value),
+      postalCode: validadePostCode(postalCodeInputRef.current.value),
+      city: !isEmpty(cityInputRef.current.value)
     })
 
-    const formIsValid = enteredNameIsValid && enteredStreetIsValid && enteredPostalCodeIsValid && enteredCityIsValid
+    const formIsValid = 
+      formInputValidity.name && 
+      formInputValidity.street && 
+      formInputValidity.postalCode && 
+      formInputValidity.city
 
     if (!formIsValid) {
 
@@ -51,6 +47,7 @@ const Checkout = (props) => {
 
   }
 
+  // Helper variables for defining error css classes for the inputs:
   const nameControlClasses = `${classes.control} ${formInputValidity.name ? '' : classes.invalid}`
   const streetControlClasses = `${classes.control} ${formInputValidity.street ? '' : classes.invalid}`
   const postalControlClasses = `${classes.control} ${formInputValidity.postalCode ? '' : classes.invalid}`
