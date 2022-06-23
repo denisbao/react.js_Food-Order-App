@@ -42,8 +42,15 @@ const Checkout = (props) => {
       formInputValidity.city
 
     if (!formIsValid) {
-
+      return
     }
+
+    props.onConfirm({
+      name: nameInputRef.current.value,
+      street: streetInputRef.current.value,
+      postalCode: postalCodeInputRef.current.value,
+      city: cityInputRef.current.value
+    })
 
   }
 
